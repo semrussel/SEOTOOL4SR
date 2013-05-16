@@ -1,0 +1,35 @@
+textarea{
+	resize: none;
+}
+
+.project th{
+	font-weight: normal;
+	font-size: 14px;
+}
+
+div#client_suggestions{
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	margin-top: 0px;
+	padding: 0px;
+}
+div.suggestion{
+	padding: 5px 0px 10px 10px;
+	border-bottom: 1px solid #ccc;
+}
+a.suggestion{
+	color: inherit;
+	display: block;
+}
+div.suggestion:hover{
+	background-color: #91b0d6;
+}
+input[type="text"].input-dropdown{
+	margin-bottom: 0px;
+}
+.details{
+	display: block;
+	color: #CCC;
+	font-size: 12px;
+	margin: 2px 0px;
+}

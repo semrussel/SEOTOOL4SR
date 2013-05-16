@@ -1,0 +1,111 @@
+#mod_login .span5, #mod_login .span10{
+	float: none;
+	margin: auto;
+}
+#mod_login .logo_div{
+	float: right;
+}
+#mod_login .row-fluid{
+	padding: 0px;
+}
+#mod_login .login {
+	width: 100%;
+	height: auto;
+	margin: auto;
+	padding: 15px 10px;
+	background-color: #FFF;
+	margin-top: 10%;
+
+	-webkit-box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.20);
+	box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.20);
+}
+
+#mod_login img#login_logo {
+	padding-bottom: 5px;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#mod_login div.login_header {
+	height: 20%;
+}
+
+#mod_login div.login_logo {
+	padding: 10px;
+}
+
+#mod_login {
+	margin: 5px;
+}
+
+#mod_login .blue_div {
+	-webkit-box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.80);
+	box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.80);
+	background-color: #4982bb;
+	margin-right: -30px;
+	margin-top: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align: center;
+	max-width: 120%;
+}
+
+#mod_login label {
+	display: inline;
+}
+
+#mod_login #seo {
+	color: #fff;
+}
+
+#mod_login #tool {
+	position: inline;
+}
+
+/*form*/
+
+#mod_login .login_form{
+	margin: auto;
+	display: inline;
+}
+
+#mod_login .title{
+	font-size: 16px;
+	margin-left: 12px;
+}
+
+#mod_login .login_input{
+	border-radius: 2px;
+	border: 1px solid #d1d1d1; 
+	background-color: #e3e3e3;
+	padding: 15px 5px 15px 5px;
+	width: 100%;
+}
+
+#mod_login .login_btn{
+	width: 100%;
+}
+
+#mod_login #login_checkbox{
+	color: inherit;
+	font-size: inherit;
+}
+
+#mod_login #login_signup{
+	text-decoration: underline;
+	color: inherit;
+	font-size: inherit;
+}
+
+#mod_login .signup{
+	text-decoration: underline;
+}
+
+#mod_login .blue-divider{
+	background-color: #4982bb;
+	-webkit-box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.80);
+	box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.80);
+	height: 3px;
+	width: 100%;
+	margin: 15px 0px;
+}

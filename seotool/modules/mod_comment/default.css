@@ -1,0 +1,22 @@
+#postComment{
+	resize: none;
+	height: 38px;
+	width: 500px;
+	margin-left: 30px;
+	margin-top: 8px;
+}
+
+a#userName, a#userName:hover{
+	font-weight: bold;
+	font-size: 13;
+	color: #4761a2;
+}
+
+a#userType, a#userType:hover{
+	font-size: 12;
+	color: #6F7574;
+}
+
+div#dynamicComment {
+	width: 48%;
+}
