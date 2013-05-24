@@ -3,11 +3,11 @@
 
 	$mysql = new mysql();
 
-
-    $table = $_POST["column"];
     $q = $_POST["q"];
+    $divname = $_POST["divname"];
+    $divid = $_POST["divid"];
 
-	$mysql->query("SELECT * FROM USER WHERE FirstName LIKE '%".$q."%' OR LastName LIKE '%".$q."%' LIMIT 10;");
+	$mysql->query("SELECT * FROM USER WHERE FirstName LIKE '%".$q."%' OR LastName LIKE '%".$q."%' OR COMPANYNAME LIKE '%".$q."%' LIMIT 10;");
 
 
 	$i = 0;  
@@ -19,7 +19,7 @@
           $row['UserId'] = htmlspecialchars($row['UserId']);
 
           echo '
-	       	<a onclick="select(\''.$row['FirstName'].' '.$row['LastName'].'\',\''.$row['UserId'].'\');">
+	       	<a onclick="select(\''.$row['FirstName'].' '.$row['LastName'].'\',\''.$row['UserId'].'\', \''.$divname.'\', \''.$divid.'\');">
 	       		<div class="suggestion" id="division'.$i.'>
        			<form name="selector">	
        				<span class="suggestion_label'.$i.'">'
@@ -34,5 +34,4 @@
 	    	$i++;
 	    }
 	}
-
 ?>

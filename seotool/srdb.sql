@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 16, 2013 at 08:04 AM
+-- Generation Time: May 23, 2013 at 09:12 AM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `CommentId` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` int(11) DEFAULT NULL,
   `ReportId` int(11) DEFAULT NULL,
-  `DateCreated` date NOT NULL,
+  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Content` text NOT NULL,
   PRIMARY KEY (`CommentId`),
   KEY `UserId` (`UserId`),
@@ -63,76 +63,28 @@ CREATE TABLE IF NOT EXISTS `file` (
   `AuthorId` int(11) NOT NULL,
   PRIMARY KEY (`FileId`),
   KEY `AuthorId` (`AuthorId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123 ;
 
 --
 -- Dumping data for table `file`
 --
 
 INSERT INTO `file` (`FileId`, `FileName`, `FileSize`, `DateUploaded`, `AuthorId`) VALUES
-(1, '2', 56710, '2013-05-15 21:16:11', 1),
-(2, '2', 56710, '2013-05-15 21:16:44', 1),
-(3, '2', 56710, '2013-05-15 21:17:26', 1),
-(4, 'sds', 44202, '2013-05-15 21:20:32', 1),
-(5, 'title', 44202, '2013-05-15 21:21:29', 1),
-(6, 'titlenanamans', 52607, '2013-05-15 21:36:17', 1),
-(7, 'titlenanamans', 52607, '2013-05-15 21:36:21', 1),
-(8, 'titlenanamans', 52607, '2013-05-15 21:36:21', 1),
-(9, 'dsfsfs', 56710, '2013-05-15 21:38:26', 1),
-(10, 'dsfsfs', 56710, '2013-05-15 21:38:27', 1),
-(11, 'dsfsfs', 56710, '2013-05-15 21:38:28', 1),
-(12, 'dsfsfs', 56710, '2013-05-15 21:38:28', 1),
-(13, 'dsfsfs', 56710, '2013-05-15 21:38:28', 1),
-(14, 'saskjdlask', 56710, '2013-05-15 21:39:12', 1),
-(15, 'saskjdlask', 56710, '2013-05-15 21:39:13', 1),
-(16, 'saskjdlask', 56710, '2013-05-15 21:39:14', 1),
-(17, 'saskjdlask', 56710, '2013-05-15 21:39:14', 1),
-(18, 'saskjdlask', 56710, '2013-05-15 21:39:14', 1),
-(19, 'dgdsf', 44202, '2013-05-15 22:08:29', 1),
-(20, 'dgdsf', 44202, '2013-05-15 22:08:32', 1),
-(21, 'dgdsf', 44202, '2013-05-15 22:08:33', 1),
-(22, 'dgdsf', 44202, '2013-05-15 22:08:33', 1),
-(23, 'dgdsf', 44202, '2013-05-15 22:08:33', 1),
-(24, 'dgdsf', 44202, '2013-05-15 22:08:33', 1),
-(25, 'dgdsf', 44202, '2013-05-15 22:08:33', 1),
-(26, 'dgdsf', 44202, '2013-05-15 22:08:33', 1),
-(27, 'dgdsf', 44202, '2013-05-15 22:08:34', 1),
-(28, 'dfsdds', 52607, '2013-05-15 22:14:19', 1),
-(29, 'dfsddsfd', 52607, '2013-05-15 22:18:22', 1),
-(30, 'dfsdsdfds', 44202, '2013-05-15 22:20:55', 1),
-(31, 'ewrwerdsfsdf', 52607, '2013-05-15 22:21:34', 1),
-(32, 'fdsfsdf', 44202, '2013-05-15 22:23:06', 1),
-(33, 'mhkjh', 66382, '2013-05-15 22:24:07', 1),
-(34, 'dsdfdsfds', 66382, '2013-05-15 22:24:29', 1),
-(35, 'dsdds', 56710, '2013-05-15 22:26:00', 1),
-(36, 'asdmasds', 66382, '2013-05-15 22:30:29', 1),
-(37, 'fsdfd', 56710, '2013-05-15 22:31:41', 1),
-(38, 'dsddsfsd', 66382, '2013-05-15 22:32:56', 1),
-(39, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(40, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(41, 'dsddsfsd', 66382, '2013-05-15 22:35:18', 1),
-(42, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(43, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(44, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(45, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(46, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(47, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(48, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(49, 'dsddsfsd', 66382, '2013-05-15 22:33:31', 1),
-(50, 'dsddsfsd', 66382, '2013-05-15 22:36:36', 1),
-(51, 'dsdfsdf', 56710, '2013-05-15 22:38:17', 1),
-(52, 'sdjskdjhsdukgksjdugdsjufhsduif', 52607, '2013-05-15 22:40:03', 1),
-(53, 'dfsdfds', 44202, '2013-05-15 22:41:38', 1),
-(54, 'dsds', 44202, '2013-05-15 22:42:32', 1),
-(55, 'ddsfds', 56710, '2013-05-15 22:47:04', 1),
-(56, 'dsdds', 44202, '2013-05-15 22:54:38', 1),
-(57, 'jhkjhk', 56710, '2013-05-15 22:55:48', 1),
-(58, 'dsdfsd', 52607, '2013-05-15 22:56:04', 1),
-(59, 'sdsd', 66382, '2013-05-15 22:56:23', 1),
-(60, 'sdasdasd', 56710, '2013-05-15 22:57:58', 1),
-(61, 'csdas', 44202, '2013-05-15 22:58:58', 1),
-(62, 'ddsfsd', 69145, '2013-05-15 23:20:43', 1),
-(63, 'title', 66382, '2013-05-15 23:22:13', 1);
+(108, 'fiveeee', 617913, '2013-05-19 23:28:23', 1),
+(109, 'fiveeee', 617913, '2013-05-19 23:32:59', 1),
+(110, 'Chapter 1 Slides CMSC 128', 434334, '2013-05-20 00:14:03', 1),
+(111, 'dfsdfsd', 512324, '2013-05-20 00:31:31', 1),
+(112, 'kjljlk', 79814, '2013-05-22 19:34:10', 1),
+(113, 'sdsdasd', 56770, '2013-05-22 19:48:03', 1),
+(114, 'sdsddsf', 56710, '2013-05-22 19:54:05', 1),
+(115, 'fdsdfsd', 56710, '2013-05-22 19:57:03', 1),
+(116, 'KEY FOR THE ASSIGNMENT', 139249, '2013-05-22 19:57:53', 1),
+(117, 'ANOTHER KEY FOR JUNE', 139249, '2013-05-22 19:59:09', 1),
+(118, 'drfsddsfsd', 139249, '0000-00-00 00:00:00', 1),
+(119, 'dfsfsdfsdfds', 139249, '2013-05-22 23:01:55', 1),
+(120, 'SPEECH PLAN FOR NARMIS', 186598, '2013-05-22 23:03:09', 1),
+(121, 'DEMO SPEECH OR OPLAN NARMIS', 354927, '2013-05-22 23:27:20', 1),
+(122, 'METHODS OF PERSUATION', 72786, '2013-05-22 23:29:06', 1);
 
 -- --------------------------------------------------------
 
@@ -144,13 +96,29 @@ CREATE TABLE IF NOT EXISTS `project` (
   `ProjectId` int(11) NOT NULL AUTO_INCREMENT,
   `AuthorId` int(11) DEFAULT NULL,
   `ClientId` int(11) DEFAULT NULL,
-  `DateCreated` date NOT NULL,
+  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Description` text,
   `TigerVinci` smallint(6) NOT NULL,
+  `ProjectTitle` varchar(64) NOT NULL,
   PRIMARY KEY (`ProjectId`),
   KEY `AuthorId` (`AuthorId`),
   KEY `ClientId` (`ClientId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`ProjectId`, `AuthorId`, `ClientId`, `DateCreated`, `Description`, `TigerVinci`, `ProjectTitle`) VALUES
+(22, 1, 2, '2013-05-23 07:06:47', 'Upload, Edit, Create, Delete Reports\nEdit, Create, Delete Projects\nEtc..', 0, 'OPLAN SEO Tool'),
+(34, 1, 2, '2013-05-22 12:49:09', 'Description', 0, 'Second title'),
+(36, 1, 2, '2013-05-20 21:39:18', 'SEO TOOL Description', 0, 'SEO TOOL'),
+(45, 1, 2, '2013-05-21 15:40:43', 'new decription', 0, 'New title ulit'),
+(47, 1, 1, '2013-05-21 15:39:25', 'PROJECT', 0, 'Oplan NARMIS'),
+(53, 1, 4, '2013-05-20 22:08:40', 'Description', 0, 'NARMIS'),
+(58, 1, 4, '2013-05-21 00:12:28', 'Description of another project', 0, 'Title of another project'),
+(61, 1, 4, '2013-05-22 12:50:30', 'Description', 0, 'This is a title'),
+(67, 1, 4, '2013-05-22 12:46:47', 'And this is the description', 0, 'This is the new title');
 
 -- --------------------------------------------------------
 
@@ -166,11 +134,31 @@ CREATE TABLE IF NOT EXISTS `report` (
   `DateCreated` date NOT NULL,
   `File` varchar(200) NOT NULL,
   `TigerVinci` smallint(6) NOT NULL,
+  `ReportTitle` varchar(64) NOT NULL,
+  `MonthYear` date NOT NULL,
   PRIMARY KEY (`ReportId`),
   KEY `WebsiteId` (`WebsiteId`),
   KEY `ClientId` (`ClientId`),
   KEY `SeoId` (`SeoId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`ReportId`, `WebsiteId`, `ClientId`, `SeoId`, `DateCreated`, `File`, `TigerVinci`, `ReportTitle`, `MonthYear`) VALUES
+(2, 34, 1, 1, '2013-05-20', '109', 0, 'fiveeee', '0000-00-00'),
+(3, 22, 6, 1, '2013-05-20', '110', 0, 'Chapter 1 Slides CMSC 128', '0000-00-00'),
+(4, 22, 6, 1, '2013-05-20', '111', 0, 'dfsdfsd', '0000-00-00'),
+(5, 58, 4, 1, '2013-05-23', '112', 0, 'kjljlk', '0000-00-00'),
+(6, 34, 2, 1, '2013-05-23', '113', 0, 'sdsdasd', '0000-00-00'),
+(7, 47, 1, 1, '2013-05-23', '118', 0, 'drfsddsfsd', '0000-00-00'),
+(8, 22, 2, 1, '2013-05-23', '119', 0, 'dfsfsdfsdfds', '0000-00-00'),
+(9, 47, 1, 1, '2013-05-23', '120', 0, 'SPEECH PLAN FOR NARMIS', '0000-00-00'),
+(10, 22, 1, 1, '2013-05-23', '120', 0, 'TITLE', '0000-00-00'),
+(11, 22, 1, 1, '2013-05-23', '120', 0, 'TITLE', '2013-05-05'),
+(12, 47, 1, 1, '2013-05-23', '121', 0, 'DEMO SPEECH OR OPLAN NARMIS', '0000-00-00'),
+(13, 22, 2, 1, '2013-05-23', '122', 0, 'METHODS OF PERSUATION', '2013-04-01');
 
 -- --------------------------------------------------------
 
@@ -190,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`UserId`),
   UNIQUE KEY `Username` (`Username`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `user`
@@ -200,7 +188,8 @@ INSERT INTO `user` (`UserId`, `Username`, `Password`, `UserType`, `Email`, `Firs
 (1, 'reecenil', 'fd887dd866937f489ca1b16ec52b30a7', 'SEO Specialist', 'reecenil.valencia0908@gmail.com', 'Reecenil', 'Valencia', 'Solutions Resource'),
 (2, 'client', '62608e08adc29a8d6dbc9754e659f125', 'Client', 'client@company.com', 'Juan', 'de la Cruz', 'CompanyOne'),
 (4, 'client2', '62608e08adc29a8d6dbc9754e659f125', 'Client', 'client@company1.com', 'Jean', 'Manas', 'Company'),
-(5, '<h1>sdksd</h1>', 'dasdasd', 'Client', 'skjhlK@JMddd.cojd', '<h1>aaaaaaa</h1>', 'bbbbbbb', 'bbbb');
+(5, '<h1>sdksd</h1>', 'dasdasd', 'Client', 'skjhlK@JMddd.cojd', '<h1>aaaaaaa</h1>', 'bbbbbbb', 'bbbb'),
+(6, 'usernamw', '5f4dcc3b5aa765d61d8327deb882cf99', 'Client', 'jdhfsdkjgkj@jgksd.fsd', 'jakjgkjg', 'kjhgkjhgkjhg', 'jdhkjsdhfdf');
 
 --
 -- Constraints for dumped tables

@@ -20,3 +20,11 @@ a#userType, a#userType:hover{
 div#dynamicComment {
 	width: 48%;
 }
+
+div#staticComment {
+	width: 48%;
+}
+
+a#deleter {
+    cursor: pointer;
+}	

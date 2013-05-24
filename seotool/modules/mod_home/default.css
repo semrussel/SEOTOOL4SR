@@ -206,3 +206,37 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
 
 }
+
+.search-query{
+	width:180%;
+}
+
+#suggestions2{
+	float:right;
+	margin-right: 11px; 
+	z-index: 3;
+	width: 320px;
+	position: relative;
+	
+}
+.navbar-search{
+	margin-left: 21%;
+}
+
+#searchform { margin:50px 200px; font-size:18px; }
+#searchform div { color:#eeeeee; }
+#searchform div input { font-size:18px; padding:5px; width:320px; }
+/*#suggestions{ position: relative; left:800px; width:320px; display:none; } temporarily disabled*/
+/* SEARCHRESULTS */
+#searchresults { border-width:1px; border-color:#919191; border-style:solid; width:320px;  background-color:#688CED; font-size:10px; line-height:14px; }
+#searchresults a { display:block; background-color:#FFFFFF; clear:left; height:56px; text-decoration:none; }
+#searchresults a:hover { background-color:#DEDEDE;}
+#searchresults a img { float:left; padding:5px 10px; }
+#searchresults a span.searchheading { display:block; font-weight:bold; padding-top:5px; color:#191919; }
+#searchresults a:hover span.searchheading { }
+#searchresults a span { color:#555555; }
+#searchresults a:hover span { }
+#searchresults span.category { font-size:11px; margin:5px; display:block; color:#ffffff; background-color:#688CED; }
+#searchresults span.seperator { float:left; padding-right:15px; margin-right:5px;
+			background-image:url(../images/shortcuts_arrow.gif); background-repeat:no-repeat; background-position:right; }
+#searchresults span.seperator a { background-color:transparent; display:block; margin:5px; height:auto; color:#ffffff; }

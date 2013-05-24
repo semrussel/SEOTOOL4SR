@@ -22,12 +22,12 @@
 			$this->result =  mysql_query($this->query);
 
 			$this->count=0;
-			if ($this->result==true){	 
-				 while ($this->temprow=mysql_fetch_assoc($this->result)) {
+				if (is_bool($this->result) !== true){ 
+				 	while ($this->temprow=mysql_fetch_assoc($this->result)) {
 						$this->row[$this->count] = $this->temprow;
 						$this->count++;
-				 }
-			}
+					 }
+				}
 		}
 
 		

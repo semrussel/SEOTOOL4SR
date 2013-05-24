@@ -16,14 +16,14 @@
 					<div class="span12">
 						<form name="form_mod_login" onsubmit="return getdetails();">
 							<div class="row-fluid">
-								<div class="span12">
+								<div class="span12" style="margin-left: 0px">
 									<span class="title">Login</span>
 								</div>
-								<div class="span4">
-									<input class="login_input" type="text" placeholder= "Username..." name="username" id="username" />
+								<div class="span4" style="margin-left: 0px">
+									<input class="login_input span12" type="text" placeholder= "Username..." name="username" id="username" />
 								</div>
 								<div class="span4">
-									<td><input class="login_input" type="password" placeholder= "Password..." name="password" id="password" /></td>
+									<td><input class="login_input span12" type="password" placeholder= "Password..." name="password" id="password" /></td>
 								</div>
 								<div class="span3 login_btn_div">
 									<td><input class="login_btn btn" type="submit" name="login" value="Log In"/></td>

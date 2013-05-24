@@ -38,9 +38,10 @@
         <li><a href="#" title="Profile"><i class="icon-user icon-white"></i></a></li>
         <li><a href="modules/mod_home/process/logout.php" onclick="return confirm_logout();" title="Logout"><i class="icon-arrow-right icon-white"></i></a></li>
       </ul>
-      <form class="navbar-search pull-right">
-        <input type="text" class="search-query" placeholder="Search...">
+      <form class="navbar-search">
+        <input type="text" placeholder="Search Projects and Reports..." onkeyup="suggest(this.value);" />
       </form>
+        <div id="suggestions2"></div>
      </div>
    </div>
  </div>

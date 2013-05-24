@@ -78,8 +78,8 @@
 	border-radius: 2px;
 	border: 1px solid #d1d1d1; 
 	background-color: #e3e3e3;
-	padding: 15px 5px 15px 5px;
-	width: 100%;
+/*	padding: 15px 5px 15px 5px;
+*/	width: 100%;
 }
 
 #mod_login .login_btn{

@@ -1,0 +1,18 @@
+#report_suggestions{
+  padding: 5px 5px;
+}
+#report_suggestions span{
+  display: block;
+}
+#report_suggestions .details{
+  font-size: 13px;
+  color: #BBB;
+  border-bottom: 1px solid #CCC;
+}
+#report_suggestions .suggestion{
+  padding: 10px 5px;
+  cursor: pointer;
+}
+#report_suggestions .suggestion:hover{
+  background-color: #f5f5f5;
+}

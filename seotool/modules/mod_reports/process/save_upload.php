@@ -5,7 +5,8 @@
 	session_start();
 	$mysql = new mysql();
 
-	// CREATE DIRECTORY
+//	var_dump($_FILES);
+//	var_dump($_REQUEST);
 
 	$_SESSION['status'] = 0;
 	if ($_SESSION['status'] == 0) {
@@ -14,17 +15,46 @@
 			//GET DATE FOR TIMESTAMP
 			$date = new DateTime();
 
-				// INSERT TO DATABASE
-				$mysql->query("CALL save_upload('', '".$_REQUEST['title']."', ".$_FILES['imagefile']['size'].", '".$date->format('Y-m-d H:i:s')."', ".$_SESSION['user']['UserId'].");");
+			// INSERT TO DATABASE
+			// INSERT TO FILE
+			$mysql->query("CALL save_upload('', '".$_REQUEST['title']."', ".$_FILES['imagefile']['size'].", '".$date->format('Y-m-d H:i:s')."', ".$_SESSION['user']['UserId'].");");
 
-				$_SESSION['last_id'] = $mysql->row[0]['last_insert_id()'];
-				//echo "CALL save_upload('', '".$_REQUEST['title']."', ".$_FILES['imagefile']['size'].", '".$date->format('Y-m-d H:i:s')."', ".$_SESSION['user']['UserId'].");";
+			//GET LAST ID
+			$_SESSION['last_id'] = $mysql->row[0]['last_insert_id()'];
+			
+			unset($mysql);
+			$mysql = new mysql();
 
-				//var_dump($mysql->row);
-		        //COPY FILE TO SERVER
-		        move_uploaded_file($_FILES['imagefile']['tmp_name'],"../../../docs/".$_SESSION['last_id'].".pdf");
-		        $_SESSION['status'] = 1;
+			//GET CLIENTID
+			$mysql->query("SELECT CLIENTID FROM PROJECT WHERE PROJECTID = ".$_REQUEST['project_id'].";");
+			
+			$client_id = $mysql->row;
+			unset($mysql);
+			$mysql = new mysql();
+
+			//DETERMINE IF TIGERVINCI PROJECT
+			$tigervinci = 0;
+			if($_SESSION['user']['UserType'] == 'Tigervinci')
+				$tigervinci = 1;
+
+			//INSERT TO REPORT
+			$mysql->query('INSERT INTO report VALUES("", '.$_REQUEST['project_id'].', '.$client_id[0]['CLIENTID'].', '.$_SESSION['user']['UserId'].', "'.$date->format('Y-m-d H:i:s').'", '.$_SESSION['last_id'].', '.$tigervinci.', "'.$_REQUEST['title'].'", "'.$_REQUEST['month'].'-01");');
+			
+			//COPY FILE TO SERVER FILENAME: file_id.pdf
+		    $status = true;
+		    $status = move_uploaded_file($_FILES['imagefile']['tmp_name'],"../../../docs/".$_SESSION['last_id'].".pdf");
+		    
+		    //SET PREVIEW 
+		    $_SESSION['view_this'] = $_SESSION['last_id'];
+		    unset($_SESSION['last_id']);
+		    
+		    if($status){
+		    	$_SESSION['status'] = 1;
+		    }
+		    else{
+		    	$_SESSION['status'] = 0;
+			}
 		}
 	}
-	header("location: ../../../index.php?mod=mod_reports");
+	header("location: ../../../index.php?mod=mod_reports#pdf_preview");
 ?>

@@ -1,6 +1,6 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="modules/mod_signup/default.js" type="text/javascript"></script>
-
+	
 	<div align="center" id="mod_signup" >
 			<form name = "form_mod_signup" method="POST" action="modules/mod_signup/process/process_signup.php">
 				<table cellpadding="0">

@@ -33,3 +33,73 @@ input[type="text"].input-dropdown{
 	font-size: 12px;
 	margin: 2px 0px;
 }
+.actions{
+	width: 20px;
+	padding: 5px;
+	z-index: 300;
+}
+.project_table{
+	line-height: 22px;
+}
+#table_refresh td{
+	vertical-align: middle;
+}
+.date_details{
+	font-size: 12px;
+	color: #CCC;
+}
+
+.accordion_header .details{
+	color: #666;
+}
+
+.accordion_header .action{
+	float: right;
+}
+
+td.edit_project{
+	padding-left: 50px;
+}
+div.left{
+	display: block;
+}
+div.right{
+	float:right;
+}
+div[id^="new_client_suggestions"]{
+	z-index: 10;
+}
+tr[id^="id"]{
+	cursor: pointer;
+}
+.edit_btn, .btn{
+	z-index: 100;
+}
+#mod_view_this .project_detail{
+	border-bottom: 1px solid #EEE;
+	margin: 5px;
+}
+
+#mod_view_this .date_details{
+	float: right;
+}
+
+span.month{
+	color: #4761a2;
+	font-weight: bold;
+}
+
+th.sort_by{
+	width: 180px;
+}
+
+th.sort_by_2{
+	width: 90px;
+}
+.clickable_report{
+	cursor: pointer;
+}
+
+#sort_by_month, .btn{
+	z-index: 500;
+}
