@@ -29,7 +29,8 @@
 			</div>
 			<div class="widget">
 				<div class="widget-header">
-					
+					<i class="icon-exclamation-sign"></i>
+					<h3>Pending Project Reports</h3>
 				</div>
 				<div class="widget-content">
 				</div>

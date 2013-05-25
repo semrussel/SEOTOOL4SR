@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 23, 2013 at 09:12 AM
+-- Generation Time: May 25, 2013 at 12:29 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
@@ -24,6 +24,12 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_report`(_report_id INT(11), _website_id INT(11), _client_id INT(11), _seo_id INT(11), _date_created DATE, _file VARCHAR(200), _tigervinci SMALLINT(6), _report_title VARCHAR(64), _month_year DATE)
+BEGIN
+	INSERT INTO report VALUES(_report_id, _website_id, _client_id, _seo_id, _date_created, _file, _tigervinci, _report_title, _month_year);
+       SELECT last_insert_id();
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `save_upload`(_file_id INT(11), _file_name VARCHAR(64), _file_size INT(64), _date_uploaded TIMESTAMP, _author_id INT(11))
 BEGIN
 	INSERT INTO file VALUES(_file_id, _file_name, _file_size, _date_uploaded, _author_id);
@@ -63,28 +69,37 @@ CREATE TABLE IF NOT EXISTS `file` (
   `AuthorId` int(11) NOT NULL,
   PRIMARY KEY (`FileId`),
   KEY `AuthorId` (`AuthorId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
 
 --
 -- Dumping data for table `file`
 --
 
 INSERT INTO `file` (`FileId`, `FileName`, `FileSize`, `DateUploaded`, `AuthorId`) VALUES
-(108, 'fiveeee', 617913, '2013-05-19 23:28:23', 1),
 (109, 'fiveeee', 617913, '2013-05-19 23:32:59', 1),
 (110, 'Chapter 1 Slides CMSC 128', 434334, '2013-05-20 00:14:03', 1),
 (111, 'dfsdfsd', 512324, '2013-05-20 00:31:31', 1),
 (112, 'kjljlk', 79814, '2013-05-22 19:34:10', 1),
 (113, 'sdsdasd', 56770, '2013-05-22 19:48:03', 1),
-(114, 'sdsddsf', 56710, '2013-05-22 19:54:05', 1),
-(115, 'fdsdfsd', 56710, '2013-05-22 19:57:03', 1),
-(116, 'KEY FOR THE ASSIGNMENT', 139249, '2013-05-22 19:57:53', 1),
-(117, 'ANOTHER KEY FOR JUNE', 139249, '2013-05-22 19:59:09', 1),
 (118, 'drfsddsfsd', 139249, '0000-00-00 00:00:00', 1),
 (119, 'dfsfsdfsdfds', 139249, '2013-05-22 23:01:55', 1),
 (120, 'SPEECH PLAN FOR NARMIS', 186598, '2013-05-22 23:03:09', 1),
 (121, 'DEMO SPEECH OR OPLAN NARMIS', 354927, '2013-05-22 23:27:20', 1),
-(122, 'METHODS OF PERSUATION', 72786, '2013-05-22 23:29:06', 1);
+(122, 'METHODS OF PERSUATION', 72786, '2013-05-22 23:29:06', 1),
+(123, 'REPORT FOR MAY 2011', 0, '2013-05-25 00:11:03', 1),
+(124, 'sdasdsads', 254792, '2013-05-25 02:16:33', 1),
+(125, 'Para sa oplan Narmis Ulit', 0, '2013-05-25 02:27:04', 1),
+(126, 'Para sa oplan Narmis Ulit?', 254792, '2013-05-25 02:27:47', 1),
+(127, 'Sa oplan SEO TOOL naman', 210318, '2013-05-25 02:28:08', 1),
+(128, 'This is a report title for December (SEO TOOL)', 0, '2013-05-25 02:47:28', 1),
+(129, 'REPORT FOR DEC 2012 FOR NARMIS', 0, '2013-05-25 03:12:14', 1),
+(130, 'FOR JAN 2012 NARMIS', 0, '2013-05-25 03:13:19', 1),
+(131, 'FOR JUL 2012', 73877, '2013-05-25 03:14:59', 1),
+(132, 'FOR JUL 2012', 73877, '2013-05-25 03:15:07', 1),
+(133, 'JAN 2013 Another', 0, '2013-05-25 03:16:48', 1),
+(134, 'REPORT FOR AUG 2014 OPLAN NARMIS', 485474, '2013-05-25 03:27:37', 1),
+(135, 'AUG 2015 ANOTHER', 73877, '2013-05-25 03:29:39', 1),
+(136, 'JUNE REPORT 2013 FOR NARMIS ONLY', 0, '2013-05-25 03:38:49', 1);
 
 -- --------------------------------------------------------
 
@@ -113,7 +128,7 @@ INSERT INTO `project` (`ProjectId`, `AuthorId`, `ClientId`, `DateCreated`, `Desc
 (22, 1, 2, '2013-05-23 07:06:47', 'Upload, Edit, Create, Delete Reports\nEdit, Create, Delete Projects\nEtc..', 0, 'OPLAN SEO Tool'),
 (34, 1, 2, '2013-05-22 12:49:09', 'Description', 0, 'Second title'),
 (36, 1, 2, '2013-05-20 21:39:18', 'SEO TOOL Description', 0, 'SEO TOOL'),
-(45, 1, 2, '2013-05-21 15:40:43', 'new decription', 0, 'New title ulit'),
+(45, 1, 2, '2013-05-25 09:13:33', 'Lorem ipsum chorva', 0, 'EVERYBODY'),
 (47, 1, 1, '2013-05-21 15:39:25', 'PROJECT', 0, 'Oplan NARMIS'),
 (53, 1, 4, '2013-05-20 22:08:40', 'Description', 0, 'NARMIS'),
 (58, 1, 4, '2013-05-21 00:12:28', 'Description of another project', 0, 'Title of another project'),
@@ -140,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `report` (
   KEY `WebsiteId` (`WebsiteId`),
   KEY `ClientId` (`ClientId`),
   KEY `SeoId` (`SeoId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `report`
@@ -158,7 +173,21 @@ INSERT INTO `report` (`ReportId`, `WebsiteId`, `ClientId`, `SeoId`, `DateCreated
 (10, 22, 1, 1, '2013-05-23', '120', 0, 'TITLE', '0000-00-00'),
 (11, 22, 1, 1, '2013-05-23', '120', 0, 'TITLE', '2013-05-05'),
 (12, 47, 1, 1, '2013-05-23', '121', 0, 'DEMO SPEECH OR OPLAN NARMIS', '0000-00-00'),
-(13, 22, 2, 1, '2013-05-23', '122', 0, 'METHODS OF PERSUATION', '2013-04-01');
+(13, 22, 2, 1, '2013-05-23', '122', 0, 'METHODS OF PERSUATION', '2013-04-01'),
+(14, 47, 1, 1, '2013-05-25', '123', 0, 'REPORT FOR MAY 2011', '2012-05-01'),
+(15, 22, 2, 1, '2013-05-25', '124', 0, 'sdasdsads', '2013-06-01'),
+(16, 47, 1, 1, '2013-05-25', '125', 0, 'Para sa oplan Narmis Ulit', '2013-07-01'),
+(17, 47, 1, 1, '2013-05-25', '126', 0, 'Para sa oplan Narmis Ulit?', '2013-08-01'),
+(18, 22, 2, 1, '2013-05-25', '127', 0, 'Sa oplan SEO TOOL naman', '2013-03-01'),
+(19, 22, 2, 1, '2013-05-25', '128', 0, 'This is a report title for December (SEO TOOL)', '2013-12-01'),
+(20, 47, 1, 1, '2013-05-25', '129', 0, 'REPORT FOR DEC 2012 FOR NARMIS', '2012-12-01'),
+(21, 47, 1, 1, '2013-05-25', '130', 0, 'FOR JAN 2012 NARMIS', '2012-03-01'),
+(22, 47, 1, 1, '2013-05-25', '131', 0, 'FOR JUL 2012', '2012-07-01'),
+(23, 47, 1, 1, '2013-05-25', '132', 0, 'FOR JUL 2012', '2012-07-01'),
+(24, 58, 4, 1, '2013-05-25', '133', 0, 'JAN 2013 Another', '2013-01-01'),
+(25, 47, 1, 1, '2013-05-25', '134', 0, 'REPORT FOR AUG 2014 OPLAN NARMIS', '2014-08-01'),
+(26, 58, 4, 1, '2013-05-25', '135', 0, 'AUG 2015 ANOTHER', '2015-08-01'),
+(27, 53, 4, 1, '2013-05-25', '136', 0, 'JUNE REPORT 2013 FOR NARMIS ONLY', '2013-06-01');
 
 -- --------------------------------------------------------
 

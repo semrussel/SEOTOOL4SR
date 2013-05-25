@@ -5,9 +5,6 @@
 	session_start();
 	$mysql = new mysql();
 
-//	var_dump($_FILES);
-//	var_dump($_REQUEST);
-
 	$_SESSION['status'] = 0;
 	if ($_SESSION['status'] == 0) {
 		if ($_REQUEST['completed'] == 1) {
@@ -38,22 +35,26 @@
 				$tigervinci = 1;
 
 			//INSERT TO REPORT
-			$mysql->query('INSERT INTO report VALUES("", '.$_REQUEST['project_id'].', '.$client_id[0]['CLIENTID'].', '.$_SESSION['user']['UserId'].', "'.$date->format('Y-m-d H:i:s').'", '.$_SESSION['last_id'].', '.$tigervinci.', "'.$_REQUEST['title'].'", "'.$_REQUEST['month'].'-01");');
-			
+			$mysql->query('CALL ADD_REPORT("", '.$_REQUEST['project_id'].', '.$client_id[0]['CLIENTID'].', '.$_SESSION['user']['UserId'].', "'.$date->format('Y-m-d H:i:s').'", '.$_SESSION['last_id'].', '.$tigervinci.', "'.$_REQUEST['title'].'", "'.$_REQUEST['month'].'-01");');
+
+			$latest_report_id = $mysql->row[0]['last_insert_id()'];
+
 			//COPY FILE TO SERVER FILENAME: file_id.pdf
-		    $status = true;
+		    $status = false;
 		    $status = move_uploaded_file($_FILES['imagefile']['tmp_name'],"../../../docs/".$_SESSION['last_id'].".pdf");
-		    
-		    //SET PREVIEW 
-		    $_SESSION['view_this'] = $_SESSION['last_id'];
-		    unset($_SESSION['last_id']);
-		    
+		       
 		    if($status){
 		    	$_SESSION['status'] = 1;
 		    }
 		    else{
+		    	//MOVING FAILED - DELETE FILE AND REPORT
 		    	$_SESSION['status'] = 0;
+		    	unset($mysql);
+		    	$mysql = new mysql();
+		    	$mysql->query('DELETE FROM FILE WHERE FILEID = '.$_SESSION['last_id'].';');
+		    	$mysql->query('DELETE FROM REPORT WHERE REPORTID = '.$latest_report_id.';');
 			}
+		    unset($_SESSION['last_id']);
 		}
 	}
 	header("location: ../../../index.php?mod=mod_reports#pdf_preview");

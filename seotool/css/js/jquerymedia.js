@@ -112,8 +112,8 @@ $.fn.media.mapFormat = function(format, player) {
 $.fn.media.defaults = {
 	standards:  true,       // use object tags only (no embeds for non-IE browsers)
 	canUndo:    true,       // tells plugin to store the original markup so it can be reverted via: $(sel).mediaUndo()
-	width:		400,
-	height:		400,
+	width:		'100%',
+	height:		'100%',
 	autoplay:	0,		   	// normalized cross-player setting
 	bgColor:	'#ffffff', 	// background color
 	params:		{ wmode: 'transparent'},	// added to object element as param elements; added to embed element as attrs

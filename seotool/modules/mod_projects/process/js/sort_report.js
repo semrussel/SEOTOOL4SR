@@ -32,10 +32,10 @@ function sort(cat){
 		},
 		type : "POST",
 		success: function(response){
-		//	console.log('CLICK SUCCESS!');
-			$("#reports_table").fadeOut();				
-			$("#reports_table").html(response);
-			$("#reports_table").fadeIn();								
+			$("#reports_table").fadeOut('slow', function(){
+				$("#reports_table").html(response);
+			});				
+			$("#reports_table").fadeIn('slow');								
 		}
 	});
 };

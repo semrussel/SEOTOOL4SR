@@ -1,6 +1,7 @@
 body{
 	background-image: url('../img/bg.png');
 	font-family: 'Helvetica Neue', 'Noto Sans';
+  background-attachment: fixed;
 }
 
 .navbar-inner{
@@ -233,4 +234,19 @@ a#notification{
 }
 table{
   font-size: 12px;
+}
+.monthly_calendar{
+  margin-top: 15px;
+}
+.monthly_calendar th{
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cal_month{
+  width: 50px;
+}
+
+.monthly_calendar td, .monthly_calendar th{
+  padding: 5px;
 }
