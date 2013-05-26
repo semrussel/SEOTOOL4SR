@@ -20,7 +20,6 @@
 								<input type="hidden" name= "client_id" id="get_userId"></input>
 								<input type="hidden" name="author_id" id="author_id" value="<?php echo $_SESSION['user']['UserId']; ?>"/>
 								<div id="client_suggestions" style="display:none;"></div>
-								<input type="checkbox" name="pending" onchange="check();" id="client" style="display: inline; " onchange="toggle('get_client');" /><label style="display: inline; " for = "client" id="pending_client" >Pending client</label><br/>
 								<input type="submit" data-loading-text="Creating..." class="btn span6" style="margin: 0px;" id="something" name="create_project" value="Create Project" />
 							</form>
 						</div>

@@ -15,9 +15,13 @@
         <li class="dropdown" id="preview-menu">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <?php if($_SESSION['user']['UserType'] == 'SEO Specialist'  ){ ?>
+            <?php if($_SESSION['user']['UserType'] == 'SEO Specialist'){ ?>
               <li><a href="?mod=mod_reports">Upload a Report</a></li>
-            <?php } ?>
+            <?php }
+              else if($_SESSION['user']['UserType'] == 'Tigervinci' || $_SESSION['user']['UserType'] == 'Client'){
+            ?>
+              <li><a href="?mod=mod_reports">Go to Reports</a></li>
+            <?php  } ?>
             <li><a href="">View Report Calendar</a></li>
           </ul>
         </li>
@@ -61,18 +65,17 @@
         </ul>
       </div>
       <div id="content">
-        
         <!-- INCLUDE CONTENT-->
         <?php 
-          if($mod != 'mod_home')
+          if($mod != 'mod_home'){
             include "modules/$mod/default.php"; 
-          else
+          }
+          else{
             include "modules/mod_dashboard/default.php"; 
+          }
           ?>
-
       </div>
     </div>
   </div>
 </div>
-
 <script src="modules/mod_home/default.js" type="text/javascript"></script>

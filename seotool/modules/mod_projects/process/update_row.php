@@ -1,41 +1,43 @@
 <?php
 	include '../../../api/api_sql.php';
+	include '../../../api/api_filter.php';
 
 	$mysql = new mysql();
 
-//	echo 'UPDATE PROJECT 
-//		SET CLIENTID = '.mysql_real_escape_string($_POST['client_id']).', DESCRIPTION = "'.mysql_real_escape_string($_POST['desc']).'", PROJECTTITLE = "'.mysql_real_escape_string($_POST['title']).'"
-//		WHERE PROJECTID = '.mysql_real_escape_string($_POST['id']).';';
-
+	$_POST = array_map('mysql_real_escape_string', $_POST);
 	$mysql->query('UPDATE PROJECT 
-		SET CLIENTID = '.mysql_real_escape_string($_POST['client_id']).', DESCRIPTION = "'.mysql_real_escape_string($_POST['desc']).'", PROJECTTITLE = "'.mysql_real_escape_string($_POST['title']).'"
-		WHERE PROJECTID = '.mysql_real_escape_string($_POST['id']).';');
+		SET CLIENTID = '.$_POST['client_id'].', DESCRIPTION = "'.$_POST['desc'].'", PROJECTTITLE = "'.$_POST['title'].'"
+		WHERE PROJECTID = '.$_POST['id'].';');
 
 	unset($mysql);
 	$mysql = new mysql();
 
 	$mysql->query('SELECT * FROM PROJECT WHERE PROJECTID = '.$_POST['id'].';');
-	echo var_dump($mysql->row);
 	
 	$row = 	$mysql->row;
+
+	if($row != null)
+		array_walk_recursive($row, "filter");
 
 	unset($mysql);
 	$mysql = new mysql();
 
-	$mysql->query('SELECT COMPANYNAME FROM USER WHERE USERID = '.mysql_real_escape_string($_POST['client_id']).';');
+	$mysql->query('SELECT COMPANYNAME FROM USER WHERE USERID = '.$_POST['client_id'].';');
+	if($mysql->row != null)
+		array_walk_recursive($mysql->row, "filter");
 
 	if($mysql->result == false){
 		echo 'fail';
 	}
 	else{
 		echo '
-			<tr id="id'.htmlspecialchars($row[0]['ProjectId']).'">
-				<td>'.htmlspecialchars($row[0]['ProjectTitle']).'</td>
-				<td>'.htmlspecialchars($mysql->row[0]['COMPANYNAME']).'</td>
-				<td class="no_right_border">'.htmlspecialchars($row[0]['DateCreated']).'</td>
+			<tr id="id'.$row[0]['ProjectId'].'">
+				<td>'.$row[0]['ProjectTitle'].'</td>
+				<td>'.$mysql->row[0]['COMPANYNAME'].'</td>
+				<td class="no_right_border">'.$row[0]['DateCreated'].'</td>
 				<form method="POST">
 					<td class="actions" style="overflow: hidden;">
-						<a onclick="toggle_accordion(\'edit_'.htmlspecialchars($row[0]['ProjectId']).'\', \''.$_POST['row_in_div'].'\')" class="btn" title="Edit"><i class="icon-edit"></i>
+						<a onclick="toggle_accordion(\'edit_'.$row[0]['ProjectId'].'\', \''.$_POST['row_in_div'].'\')" class="btn" title="Edit"><i class="icon-edit"></i>
 					</td>
 				</form>
 			</tr>

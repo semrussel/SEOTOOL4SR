@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 25, 2013 at 12:29 PM
+-- Generation Time: May 26, 2013 at 05:50 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`CommentId`),
   KEY `UserId` (`UserId`),
   KEY `ReportId` (`ReportId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `file` (
   `AuthorId` int(11) NOT NULL,
   PRIMARY KEY (`FileId`),
   KEY `AuthorId` (`AuthorId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=160 ;
 
 --
 -- Dumping data for table `file`
@@ -99,7 +99,23 @@ INSERT INTO `file` (`FileId`, `FileName`, `FileSize`, `DateUploaded`, `AuthorId`
 (133, 'JAN 2013 Another', 0, '2013-05-25 03:16:48', 1),
 (134, 'REPORT FOR AUG 2014 OPLAN NARMIS', 485474, '2013-05-25 03:27:37', 1),
 (135, 'AUG 2015 ANOTHER', 73877, '2013-05-25 03:29:39', 1),
-(136, 'JUNE REPORT 2013 FOR NARMIS ONLY', 0, '2013-05-25 03:38:49', 1);
+(136, 'JUNE REPORT 2013 FOR NARMIS ONLY', 0, '2013-05-25 03:38:49', 1),
+(143, 'May 2013 Everybody project', 445060, '2013-05-26 02:23:05', 1),
+(144, 'September report for OPLAN SEO Tool', 907072, '2013-05-26 02:29:39', 1),
+(145, 'SEO TOOL APR 2013', 251541, '2013-05-26 02:34:26', 1),
+(146, 'Everybody Sept 2013', 907072, '2013-05-26 02:41:35', 1),
+(147, 'sdasdsads', 298807, '2013-05-26 02:47:42', 1),
+(148, 'Tigervinci Report For Project kjfhsdklgjsldifugnli MAY 2013', 397301, '2013-05-26 05:39:02', 8),
+(149, 'report for test test test jan 2013', 445060, '2013-05-26 05:51:57', 8),
+(150, 'for tigervinci tes test feb 2013', 752503, '2013-05-26 06:20:44', 1),
+(151, '<h1>testing again</h1>', 346337, '2013-05-26 07:20:49', 1),
+(152, 'test test test test sjfdsklfjs', 598606, '2013-05-26 08:14:05', 1),
+(153, 'normal', 502344, '2013-05-26 08:18:15', 1),
+(154, 'testing', 911380, '2013-05-26 08:19:01', 1),
+(155, 'kjdfkdhsfikhsdliu', 226304, '2013-05-26 08:21:57', 1),
+(157, 'tijriothlzduinliubli', 598606, '2013-05-26 08:25:08', 1),
+(158, 'normal', 598606, '2013-05-26 08:28:05', 1),
+(159, '<marquee>dfjslkjM</marquee>', 69300, '2013-05-26 08:30:35', 1);
 
 -- --------------------------------------------------------
 
@@ -118,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `project` (
   PRIMARY KEY (`ProjectId`),
   KEY `AuthorId` (`AuthorId`),
   KEY `ClientId` (`ClientId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=90 ;
 
 --
 -- Dumping data for table `project`
@@ -126,14 +142,23 @@ CREATE TABLE IF NOT EXISTS `project` (
 
 INSERT INTO `project` (`ProjectId`, `AuthorId`, `ClientId`, `DateCreated`, `Description`, `TigerVinci`, `ProjectTitle`) VALUES
 (22, 1, 2, '2013-05-23 07:06:47', 'Upload, Edit, Create, Delete Reports\nEdit, Create, Delete Projects\nEtc..', 0, 'OPLAN SEO Tool'),
-(34, 1, 2, '2013-05-22 12:49:09', 'Description', 0, 'Second title'),
+(34, 1, 2, '2013-05-26 15:44:51', 'dfs', 0, '\\''"''''''"\\'),
 (36, 1, 2, '2013-05-20 21:39:18', 'SEO TOOL Description', 0, 'SEO TOOL'),
 (45, 1, 2, '2013-05-25 09:13:33', 'Lorem ipsum chorva', 0, 'EVERYBODY'),
 (47, 1, 1, '2013-05-21 15:39:25', 'PROJECT', 0, 'Oplan NARMIS'),
 (53, 1, 4, '2013-05-20 22:08:40', 'Description', 0, 'NARMIS'),
 (58, 1, 4, '2013-05-21 00:12:28', 'Description of another project', 0, 'Title of another project'),
-(61, 1, 4, '2013-05-22 12:50:30', 'Description', 0, 'This is a title'),
-(67, 1, 4, '2013-05-22 12:46:47', 'And this is the description', 0, 'This is the new title');
+(70, 8, 6, '2013-05-26 05:30:19', 'Desc of tigervinci project', 0, 'Title of  Tigervinci project'),
+(77, 8, 2, '2013-05-26 05:32:31', 'Desc of a tigervinci project', 1, 'Title of a Tigervinci Project'),
+(80, 8, 2, '2013-05-26 13:51:37', 'test test test ', 1, 'test test test '),
+(81, 8, 2, '2013-05-26 15:07:29', 'jfksjfljhlij', 1, '<h1>test</h1>'),
+(82, 8, 6, '2013-05-26 07:02:15', 'shshl', 1, '''"'''),
+(83, 8, 7, '2013-05-26 07:02:53', 'skndalkn;kas;', 1, '''"''''''""'''),
+(85, 8, 4, '2013-05-26 07:11:04', 'cskjfkldnflkjn', 1, '<script>while(1){}</script>'),
+(86, 1, 4, '2013-05-26 07:19:30', 'dhflksdhjliugl', 0, '<h1>testing</h1>'),
+(87, 1, 2, '2013-05-26 16:01:56', '<script>alert(''bazinga'');</script>', 0, '"; SELECT * FROM PROJECT; "''''K ioa(*^&#(@*$^(@#^$#$(:" "" "" \\S:'),
+(88, 1, 6, '2013-05-26 07:40:53', 'fdsdfd', 0, '"; SELECT * FROM REPORT;'),
+(89, 1, 4, '2013-05-26 07:59:55', '''; SELECT * FROM REPORT; "''""''''?''"."%"?"D', 0, '<a href="ksfjlsdf">jlskjdl</a>');
 
 -- --------------------------------------------------------
 
@@ -155,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `report` (
   KEY `WebsiteId` (`WebsiteId`),
   KEY `ClientId` (`ClientId`),
   KEY `SeoId` (`SeoId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `report`
@@ -187,7 +212,18 @@ INSERT INTO `report` (`ReportId`, `WebsiteId`, `ClientId`, `SeoId`, `DateCreated
 (24, 58, 4, 1, '2013-05-25', '133', 0, 'JAN 2013 Another', '2013-01-01'),
 (25, 47, 1, 1, '2013-05-25', '134', 0, 'REPORT FOR AUG 2014 OPLAN NARMIS', '2014-08-01'),
 (26, 58, 4, 1, '2013-05-25', '135', 0, 'AUG 2015 ANOTHER', '2015-08-01'),
-(27, 53, 4, 1, '2013-05-25', '136', 0, 'JUNE REPORT 2013 FOR NARMIS ONLY', '2013-06-01');
+(27, 53, 4, 1, '2013-05-25', '136', 0, 'JUNE REPORT 2013 FOR NARMIS ONLY', '2013-06-01'),
+(34, 45, 2, 1, '2013-05-26', '143', 0, 'May 2013 Everybody project', '0000-00-00'),
+(35, 22, 2, 1, '2013-05-26', '144', 0, 'September report for OPLAN SEO Tool', '0000-00-00'),
+(36, 36, 2, 1, '2013-05-26', '145', 0, 'SEO TOOL APR 2013', '0000-00-00'),
+(37, 45, 2, 1, '2013-05-26', '146', 0, 'Everybody Sept 2013', '2013-09-01'),
+(38, 36, 2, 1, '2013-05-26', '147', 0, 'sdasdsads', '2013-10-01'),
+(40, 80, 2, 8, '2013-05-26', '149', 1, 'report for test test test jan 2013', '2013-01-01'),
+(41, 80, 2, 1, '2013-05-26', '150', 0, 'for tigervinci tes test feb 2013', '2013-02-01'),
+(42, 58, 4, 1, '2013-05-26', '151', 0, '<h1>testing again</h1>', '2011-08-01'),
+(43, 87, 2, 1, '2013-05-26', '157', 0, 'tijriothlzduinliubli', '2010-05-01'),
+(44, 87, 2, 1, '2013-05-26', '158', 0, 'normal', '2100-03-01'),
+(45, 87, 2, 1, '2013-05-26', '159', 0, '<marquee>dfjslkjM</marquee>', '2012-11-01');
 
 -- --------------------------------------------------------
 
@@ -207,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`UserId`),
   UNIQUE KEY `Username` (`Username`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `user`
@@ -218,7 +254,9 @@ INSERT INTO `user` (`UserId`, `Username`, `Password`, `UserType`, `Email`, `Firs
 (2, 'client', '62608e08adc29a8d6dbc9754e659f125', 'Client', 'client@company.com', 'Juan', 'de la Cruz', 'CompanyOne'),
 (4, 'client2', '62608e08adc29a8d6dbc9754e659f125', 'Client', 'client@company1.com', 'Jean', 'Manas', 'Company'),
 (5, '<h1>sdksd</h1>', 'dasdasd', 'Client', 'skjhlK@JMddd.cojd', '<h1>aaaaaaa</h1>', 'bbbbbbb', 'bbbb'),
-(6, 'usernamw', '5f4dcc3b5aa765d61d8327deb882cf99', 'Client', 'jdhfsdkjgkj@jgksd.fsd', 'jakjgkjg', 'kjhgkjhgkjhg', 'jdhkjsdhfdf');
+(6, 'usernamw', '5f4dcc3b5aa765d61d8327deb882cf99', 'Client', 'jdhfsdkjgkj@jgksd.fsd', 'jakjgkjg', 'kjhgkjhgkjhg', 'jdhkjsdhfdf'),
+(7, 'sdfsdfsdf', 'dfdsgdfgsf', 'Client', 'fsdfnlkj@kjdrg.spodjfspd', 'dfsdf', 'fsdfds', 'CompanyOne'),
+(8, 'tigervinci', 'a55a8c7f9e736cec0796103a92a8e27b', 'Tigervinci', 'tigervonci@tigervinci.com', 'Tigervinci', 'Account', 'Tigervinci');
 
 --
 -- Constraints for dumped tables
@@ -228,14 +266,14 @@ INSERT INTO `user` (`UserId`, `Username`, `Password`, `UserType`, `Email`, `Firs
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`),
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`ReportId`) REFERENCES `report` (`ReportId`);
+  ADD CONSTRAINT `comment_ibfk_4` FOREIGN KEY (`ReportId`) REFERENCES `report` (`ReportId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_3` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `file`
 --
 ALTER TABLE `file`
-  ADD CONSTRAINT `file_ibfk_2` FOREIGN KEY (`AuthorId`) REFERENCES `user` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `file_ibfk_3` FOREIGN KEY (`AuthorId`) REFERENCES `user` (`UserId`);
 
 --
 -- Constraints for table `project`
@@ -248,9 +286,9 @@ ALTER TABLE `project`
 -- Constraints for table `report`
 --
 ALTER TABLE `report`
-  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`WebsiteId`) REFERENCES `project` (`ProjectId`),
-  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`ClientId`) REFERENCES `user` (`UserId`),
-  ADD CONSTRAINT `report_ibfk_3` FOREIGN KEY (`SeoId`) REFERENCES `user` (`UserId`);
+  ADD CONSTRAINT `report_ibfk_8` FOREIGN KEY (`SeoId`) REFERENCES `user` (`UserId`),
+  ADD CONSTRAINT `report_ibfk_4` FOREIGN KEY (`WebsiteId`) REFERENCES `project` (`ProjectId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `report_ibfk_7` FOREIGN KEY (`ClientId`) REFERENCES `user` (`UserId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

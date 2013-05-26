@@ -14,16 +14,17 @@ $(document).ready(function(){
   $(".media").media();
   $('#upload_report_btn').attr('disabled', 'disabled');
   $('#input_month').attr('disabled', 'disabled');
-  $("#main_viewer").hide();
+//  $("#main_viewer").hide();
 
-  set_monthly_calendar();
+  set_filter('monthly_calendar');
 
   //INITIAL REPORT SUGGESTIONS
   $.ajax({
     url : "modules/mod_reports/process/report_pdf_preview.php",
     data : {
       "month" : month,
-      "year" : year
+      "year" : year,
+      "filter" : "month"
     },
     type : "POST"
   }).done(function(response){
@@ -91,7 +92,34 @@ $(document).ready(function(){
     validate();
   });
 
+
+//FILTERS
+  $('button[id^="cat_"]').click(function(){
+    if(this.id == 'cat_month'){
+      set_filter('monthly_calendar');
+    }
+    else if(this.id == 'cat_company'){
+      set_filter('company_reports');
+    }
+    else if(this.id == 'cat_project'){
+      set_filter('project_reports');
+    }
+    else if(this.id == 'cat_advanced'){
+      set_filter('advanced_reports');
+    }
+  });
 });
+
+function set_filter(filter){
+  $.ajax({
+      url : "modules/mod_reports/process/"+filter+".php"
+    }).done(function(response){
+        $('#sort_category').fadeOut('slow', function(){
+          $('#sort_category').html(response);
+        });
+        $('#sort_category').fadeIn('slow');
+    })   
+}
 
 function validate(){
   if(title_validation > 0 &&
@@ -105,13 +133,6 @@ function validate(){
   }
 }
 
-function set_monthly_calendar(){
-$.ajax({
-    url : "modules/mod_reports/process/monthly_calendar.php"
-  }).done(function(response){
-      $('#month_calendar').html(response);
-  })
-};
 
 function suggest_reports(value){
   $.ajax({
@@ -143,4 +164,15 @@ function change_preview(id){
   $("#main_viewer").attr("href", "docs/"+id+".pdf");
   $(".media").media();
   $('#initial').fadeOut();
+  $.ajax({
+    url : "modules/mod_reports/process/load_pdf_details.php",
+    data : {
+      "id" : id
+    },
+    type : "POST",
+    success : function(response){
+      console.log(response);
+      $('#pdf_details').html(response);
+    }
+  });
 }

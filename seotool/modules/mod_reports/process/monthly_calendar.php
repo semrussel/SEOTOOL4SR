@@ -28,4 +28,4 @@
 	</tbody>
 </table>
 
-<script src="css/js/monthly_calendar.js"></script>
+<script src="modules/mod_reports/process/js/monthly_calendar.js"></script>

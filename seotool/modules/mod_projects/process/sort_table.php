@@ -1,11 +1,14 @@
 <?php
 	include '../../../api/api_sql.php';
+	include '../../../api/api_filter.php';
 	unset($mysql);
 
 //	var_dump($_POST);
 
 	$mysql = new mysql();
-	$mysql->query('SELECT MONTH(DATECREATED) AS MONTH, YEAR(DATECREATED) AS YEAR, REPORTTITLE, DATECREATED, REPORTID FROM REPORT WHERE WEBSITEID = '.mysql_real_escape_string($_POST['id']).' ORDER BY '.mysql_real_escape_string($_POST['accdg']).' '.mysql_real_escape_string($_POST['asc']).';');
+
+	$_POST = array_map('mysql_real_escape_string', $_POST);
+	$mysql->query('SELECT MONTH(DATECREATED) AS MONTH, YEAR(DATECREATED) AS YEAR, REPORTTITLE, DATECREATED, REPORTID, FILE FROM REPORT WHERE WEBSITEID = '.$_POST['id'].' ORDER BY '.$_POST['accdg'].' '.$_POST['asc'].';');
 //	var_dump($mysql->row);
 ?>
 	<table class="table table-striped table-hover">
@@ -32,10 +35,10 @@
 	if($mysql->row != null){
 		$no = 1;
 		foreach($mysql->row as $row){ 
-		//	var_dump($row);
+			array_walk_recursive($row, "filter");
 			?>
-			<tr class="clickable_report">
-				<input class="hidden" value="<?php echo $row['REPORTID']; ?>" />
+			<tr class="clickable_report" onclick="view_report(<?php echo $row['FILE']; ?>);">
+				<input class="hidden" value="<?php echo $row['REPORTID']; ?>" id="id" />
 				<td><?php echo $no; ?></td>
 				<td><?php echo date("F Y", mktime(0,0,0,$row['MONTH'],1,$row['YEAR'])); ?></td>
 				<td><?php echo $row['REPORTTITLE']; ?></td>

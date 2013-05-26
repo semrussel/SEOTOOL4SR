@@ -11,7 +11,6 @@ $(document).ready(function(){
 			},
 			type : "POST",
 			success: function(response){
-				console.log(response);
 				$('#check_cross').html(response);
 			}
 		});

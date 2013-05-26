@@ -1,18 +1,18 @@
 <?php
 	include '../../../api/api_sql.php';
 
+	session_start();
+
 	$mysql = new mysql();
 	$date = new DateTime();
 	
-	$user_seo = 1;
-	$mysql->query("SELECT * FROM USER WHERE USERID = ".$_POST['author_id']." AND USERTYPE = 'Seo Specialist';");
-	$user_seo = $mysql->row;
+	$_POST = array_map('mysql_real_escape_string', $_POST);
 	
 	// IF AUTHOR IS SEO SPECIALIST
-	if($user_seo != null)
-		$tigervinci = 0;
-	
-	//echo var_dump($user_seo);
+	$tigervinci = 0;
+	if($_SESSION['user']['UserType'] == "Tigervinci"){
+		$tigervinci = 1;
+	}
 
 	$mysql->query("INSERT INTO PROJECT VALUES('', ".$_POST['author_id'].", ".$_POST['client_id'].", '".$date->format('Y-m-d H:i:s')."', '".$_POST['desc']."', ".$tigervinci.", '".$_POST['title']."');");
 	

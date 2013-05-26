@@ -1,9 +1,5 @@
 var flag = false;
-var focus = 0;
 var enabled = 1;
-var client = 0;
-var fade = false;
-var idNo = 0;
 
 $(document).ready(function(){
     $('input[name=get_client]').typeahead({
@@ -68,22 +64,15 @@ function toggle(name){
 }
 
 function check(){
-    console.log($("#get_userId").val());
     if($("#prependedInput").val() != '' && 
         $("#proj_desc").val() != "" &&
-        ($("#get_client").val() != "" || $("#pending_client").is(':checked') == true)
+        ($("#get_client").val() != "")
     )
     $("#something").removeAttr("disabled");
 }
 
 
 function add_project(){
-
-    $('#something').button();
-    $('#something').on('click', function () {
-        $(this).button('loading-text')
-     });    
-
     $.ajax({
          type: "POST",
          url: "modules/mod_projects/process/add_projects.php",
@@ -94,14 +83,18 @@ function add_project(){
             author_id: $("#author_id").val()
         }
      }).done(function(response) {
-            console.log(response);
             if(response == 'success'){
-                console.log("ALERT HERE");
                 refresh_table();
+                //CLEAR FIELDS 
                 $('#alert_success').fadeIn();
+                $("#prependedInput").val("");
+                $("#proj_desc").val("");
+                $("#get_userId").val("");
+                $("#author_id").val("");
+                $("#get_client").val("");
             }
             else{
-                console.log("ALERT FAIL");
+                $('#alert_fail').fadeIn();
             }
     });
      return false;
@@ -112,13 +105,9 @@ function refresh_table(){
          url: "modules/mod_projects/process/update_table.php",
      }).done(function(response){
         $("#table_refresh").fadeOut("slow", function(){
-           // console.log(response);
-            var div = $(response).hide();
-            $(this).replaceWith(div);
+            $(this).replaceWith(response);
             $(".edit_project").hide();
             $("#table_refresh").fadeIn("slow");
-
-            
         });
     });
 }
@@ -161,7 +150,6 @@ function give_suggestions(){
          },
          type: "POST"
      }).done(function(response) {
-        console.log(response);
     });
     return false;
 }

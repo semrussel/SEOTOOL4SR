@@ -5,6 +5,8 @@
 	session_start();
 	$mysql = new mysql();
 
+	$_POST = array_map('mysql_real_escape_string', $_POST);
+
 	$_SESSION['status'] = 0;
 	if ($_SESSION['status'] == 0) {
 		if ($_REQUEST['completed'] == 1) {
@@ -15,6 +17,7 @@
 			// INSERT TO DATABASE
 			// INSERT TO FILE
 			$mysql->query("CALL save_upload('', '".$_REQUEST['title']."', ".$_FILES['imagefile']['size'].", '".$date->format('Y-m-d H:i:s')."', ".$_SESSION['user']['UserId'].");");
+			$status2 = $mysql->result;
 
 			//GET LAST ID
 			$_SESSION['last_id'] = $mysql->row[0]['last_insert_id()'];
@@ -36,6 +39,7 @@
 
 			//INSERT TO REPORT
 			$mysql->query('CALL ADD_REPORT("", '.$_REQUEST['project_id'].', '.$client_id[0]['CLIENTID'].', '.$_SESSION['user']['UserId'].', "'.$date->format('Y-m-d H:i:s').'", '.$_SESSION['last_id'].', '.$tigervinci.', "'.$_REQUEST['title'].'", "'.$_REQUEST['month'].'-01");');
+			$status1 = $mysql->result;
 
 			$latest_report_id = $mysql->row[0]['last_insert_id()'];
 
@@ -43,8 +47,10 @@
 		    $status = false;
 		    $status = move_uploaded_file($_FILES['imagefile']['tmp_name'],"../../../docs/".$_SESSION['last_id'].".pdf");
 		       
-		    if($status){
+		    if($status && $status1 && $status2){
 		    	$_SESSION['status'] = 1;
+		    	$_SESSION['newly_uploaded'] = $_SESSION['last_id'];
+		    	var_dump($_SESSION);
 		    }
 		    else{
 		    	//MOVING FAILED - DELETE FILE AND REPORT
@@ -53,6 +59,8 @@
 		    	$mysql = new mysql();
 		    	$mysql->query('DELETE FROM FILE WHERE FILEID = '.$_SESSION['last_id'].';');
 		    	$mysql->query('DELETE FROM REPORT WHERE REPORTID = '.$latest_report_id.';');
+
+		    	var_dump($_POST);
 			}
 		    unset($_SESSION['last_id']);
 		}

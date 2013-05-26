@@ -103,3 +103,6 @@ th.sort_by_2{
 #sort_by_month, .btn{
 	z-index: 500;
 }
+#delete_this_project{
+	margin-top: 10px;
+}

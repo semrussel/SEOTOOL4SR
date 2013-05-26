@@ -20,3 +20,40 @@
 .media{
 	height: 100%;
 }
+
+.category_div{
+	margin-top: 10px;
+	margin-left: 0px;
+}
+
+.category_btn{
+	padding: 5px 5px;
+	vertical-align: middle;
+}
+.category_btn i{
+	margin-right: 10px;
+}
+
+#all_reports{
+  height: 500px;
+  overflow: scroll;
+}
+
+#advanced_form, #company_reports{
+  margin-top: 10px;
+}
+
+.pdf_detail{
+  border-bottom: 1px solid #ccc;
+  margin: 10px;
+  display: block;
+}
+
+.detail{
+  font-size: 15px;
+}
+
+.details{
+  color: #CCC;
+  font-size: 12px;
+}

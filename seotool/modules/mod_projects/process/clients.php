@@ -1,7 +1,10 @@
 <?php 
-	include '../../../api/api_sql.php';
+  include '../../../api/api_sql.php';
+	include '../../../api/api_filter.php';
 
 	$mysql = new mysql();
+
+    $_POST = array_map('mysql_escape_string', $_POST);
 
     $q = $_POST["q"];
     $divname = $_POST["divname"];
@@ -13,10 +16,7 @@
 	$i = 0;  
     if($mysql->row != null){
 	    foreach($mysql->row as $row) {
-	       	$row['FirstName'] = htmlspecialchars($row['FirstName']);
-          $row['LastName'] = htmlspecialchars($row['LastName']);
-          $row['CompanyName'] = htmlspecialchars($row['CompanyName']);
-          $row['UserId'] = htmlspecialchars($row['UserId']);
+          array_walk_recursive($row, "filter");
 
           echo '
 	       	<a onclick="select(\''.$row['FirstName'].' '.$row['LastName'].'\',\''.$row['UserId'].'\', \''.$divname.'\', \''.$divid.'\');">

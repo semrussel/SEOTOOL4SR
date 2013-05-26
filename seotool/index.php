@@ -21,6 +21,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="css/js/jquery.metadata.js"></script>
+		<!--script src="css/js/jquery.autosize-min.js"></script-->
 		
 		<link href="css/bootstrap.css" rel="stylesheet" />
 		<link href="css/bootstrap-responsive.css" rel="stylesheet" />
@@ -32,6 +33,7 @@
 		
 		<!-- include default.css-->
 		<link href="modules/<?php echo $mod; ?>/default.css" rel="stylesheet" />
+		<link href="modules/mod_comment/default.css" rel="stylesheet" />
 
 		<link href="css/reset.css" rel="stylesheet" />
 

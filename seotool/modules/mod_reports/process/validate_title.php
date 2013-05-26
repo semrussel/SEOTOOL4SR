@@ -3,6 +3,7 @@
 
 	$mysql = new mysql();
 
+	$_POST = array_map('mysql_real_escape_string', $_POST);
 	if($_POST['title'] != ''){
 		$mysql->query('SELECT COUNT(*) AS COUNT FROM REPORT WHERE REPORTTITLE = "'.$_POST['title'].'";');
 	//	var_dump($mysql->row[0]['COUNT']);

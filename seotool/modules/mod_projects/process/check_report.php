@@ -2,7 +2,9 @@
 	include '../../../api/api_sql.php';
 
 	$mysql = new mysql();
-	$query = 'SELECT COUNT(*) AS COUNT FROM REPORT WHERE "'.mysql_real_escape_string($_POST['month']).'" IN (SELECT DATE_FORMAT(MONTHYEAR,"%Y-%m") FROM REPORT ) AND WEBSITEID = '.mysql_real_escape_string($_POST['id']).';';
+
+	$_POST = array_map('mysql_real_escape_string', $_POST);
+	$query = 'SELECT COUNT(*) AS COUNT FROM REPORT WHERE "'.$_POST['month'].'" IN (SELECT DATE_FORMAT(MONTHYEAR,"%Y-%m") FROM REPORT ) AND WEBSITEID = '.$_POST['id'].';';
 
 	$mysql->query($query);
 
