@@ -127,10 +127,13 @@
 							if(isset($_SESSION['newly_uploaded'])){
 								$a = $_SESSION['newly_uploaded'];
 								unset($_SESSION['newly_uploaded']);
-							}
+							?>
+								<a id="main_viewer" class="media" href="docs/<?php echo $a; ?>.pdf" style="height: 500px"></a>
+
+						<?php	}
 						?>
 
-						<a id="main_viewer" class="media" style="height: 500px"></a>
+						<a id="main_viewer" class="media" href="" style="height: 500px"></a>
 					 	<span id="initial">Please select report to preview.</span>
 				</div>
 			</div>

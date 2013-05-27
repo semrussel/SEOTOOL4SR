@@ -1,104 +1,58 @@
+<?php
+	include 'api/api_sql.php';
+	include 'api/api_filter.php';
+?>
 <div id="mod_dashboard">	
 	<div class="row-fluid">
-		<div class="span3">
-			<div class="widget">
-				<div class="widget-header">
-					<i class="icon-star  icon-white"></i>
-					<h3>Quick shortcuts</h3>
-				</div>
-				<div class="widget-content">
-					<div class="shortcuts">
-						<?php 
-							// FOR SEO SPECIALISTS 
-						if($_SESSION['user']['UserType']=='SEO Specialist'){ ?>
-						<a class="shortcut">
-							<i class="icon-arrow-up"></i>
-							<span>Upload a Report</span>
-						</a>
-						<?php } 
-							// FOR SEO SPECIALISTS AND TIGRVINCI PERSONNEL
-						if($_SESSION['user']['UserType']=='SEO Specialist' || $_SESSION['user']['UserType']=='Tigervinci'){ ?>
-						<a class="shortcut">
-							<i class="icon-folder-open"></i>
-							<span>Create Project</span>
-						</a>
-						<a class="shortcut">
-							<i class="icon-th-list"></i>
-							<span>View all Reports</span>
-						</a>
-						<?php } 
-							// FOR ALL REGISTERED USERS
-						?>
-						<a class="shortcut">
-							<i class="icon-calendar"></i>
-							<span>View Calendar</span>
-						</a>
-					</div>
-				</div>
-			</div>
+		<div class="widget-content shortcuts">
+			<?php if($_SESSION['user']['UserType']=='SEO Specialist'){ ?>
+			<button class="btn shortcut span4" id="upload_report">
+				<i class="icon-arrow-up"></i>
+				<span>Upload a Report</span>
+			</button>
+			<?php } ?> 
+			<?php 
+				// FOR SEO SPECIALISTS 
+			if($_SESSION['user']['UserType']=='SEO Specialist' || $_SESSION['user']['UserType']=='Tigervinci'){ ?>
+			<button class="btn shortcut span4" id="create_project">
+				<i class="icon-folder-open"></i>
+				<span>Create Project</span>
+			</button>
+			<button class="btn shortcut span4" id="view_reports">
+				<i class="icon-th-list"></i>
+				<span>View all Reports</span>
+			</button>
+			<?php } 
+			?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span8">
 			<div class="widget">
 				<div class="widget-header">
 					<i class="icon-bookmark icon-white"></i>
 					<h3>Ongoing Projects</h3>
 				</div>
-				<div class = "widget-content" style="padding: 0px;">
-					<ul class="widget-list">
-						<li class="widget-item-list">
-							<h3><a href="#">Project Name</a></h3>
-							<h6>Company name/Client name</h6>
-						</li>
-						<li class="widget-item-list">
-							<h3><a href="#">Project Name</a></h3>
-							<h6>Company name/Client name</h6>
-						</li>
-						<li class="widget-item-list">
-							<h3><a href="#">Project Name</a></h3>
-							<h6>Company name/Client name</h6>
-						</li>
-					</ul>
+				<div class = "widget-content">
+					<div id="ongoing_projects">
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class= "span9">
+		<div class= "span4">
 			<div class="widget">
 				<div class="widget-header">
 					<i class="icon-pencil icon-white"></i>
-					<h3>Reports for May</h3>
+					<h3>Reports for <?php echo date('M', time()); ?></h3>
 				</div>
-				<div class="widget-content">
-					<table class="table table-bordered table-striped table-hover">
-						<thead>
-							<tr>
-								<th>No.</th>
-								<th>Company</th>
-								<th>Client name</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-								for($i=0;$i<10;$i++){
-							?>
-							<tr>
-								<td><?php echo $i; ?></td>
-								<td><?php echo "Company $i"; ?></td>
-								<td><?php echo "Full Name $i"; ?></td>
-								<td>Status</td>
-							</tr>
-							<?php } ?>
-						</tbody>
-					</table>
+				<div class="widget-content" id="dash_reports">
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row-fluid summary">
-		<div class="span4">
-			<div class="summary-item"></div>
-		</div>
-		<div class="span4">
-		</div>
-		<div class="span4">
-		</div>
-	</div>	
+	<div class="row-fluid">
+	</div>
 </div>
+
+<script src="modules/mod_dashboard/default.js"></script>
+<script src="modules/mod_projects/default.js"></script>

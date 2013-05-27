@@ -12,19 +12,24 @@
 						<input type="text" placeholder = "Last name" class="span6"/>
 						<div class="input-prepend">
 							<span class="add-on">@</span>
-							<input type="text" placeholder = "Username" class="span9" id="prependedInput"/>
+							<input type="text" placeholder = "Username" class="span9" />
 						</div>
 						<div class="input-prepend">
 							<span class="add-on"><i class="icon-lock"></i></span>
-							<input type="text" placeholder = "Password" class="span9" id="prependedInput"/>
+							<input type="text" placeholder = "Password" class="span9" />
 						</div>
-						<input type="text" placeholder = "kung gusto mo baguhin yung width, lagay mo lang: class='span12'" class="span12"/>
-						<input type="text" placeholder = "span11" class="span11"/>
-						<input type="text" placeholder = "span10" class="span10"/>
-						<input type="text" placeholder = "span9" class="span9"/>
-						<input type="text" placeholder = "span8" class="span8"/>
-						<input type="text" placeholder = "span7" class="span7"/>
-						<input type="text" placeholder = "span6 hanggang span1 :)" class="span6"/>
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-lock"></i></span>
+							<input type="text" placeholder = "Confirm Password..." class="span9" />
+						</div>
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-envelope"></i></span>
+							<input type="text" placeholder = "Email address..." class="span9" />
+						</div>
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-briefcase"></i></span>
+							<input type="text" placeholder = "Company Name..." class="span9" />
+						</div>
 						<input type="submit" class="btn span12" value="Create" />
 					</div>
 				</div>
@@ -120,7 +125,7 @@
 									<td>data</td>
 									<td>data</td>
 									<td>data</td>
-									<td class="pull-right">
+									<td class="action_edit">
 										<button class="btn btn-primary" title="Edit this user"><i class="icon-edit"></i></button>
 										<button class="btn btn-danger" title="Delete this user"><i class="icon-remove"></i></button>
 									</td>
@@ -132,7 +137,7 @@
 									<td>data</td>
 									<td>data</td>
 									<td>data</td>
-									<td class="pull-right">
+									<td class="action_del">
 										<button class="btn btn-primary" title="Edit this user"><i class="icon-edit"></i></button>
 										<button class="btn btn-danger" title="Delete this user"><i class="icon-remove"></i></button>
 									</td>

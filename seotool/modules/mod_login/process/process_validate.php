@@ -16,13 +16,11 @@
 		if ($mysql->row===null) {
 			$myrow=null;
 		}else {
-			foreach ($mysql->row as $myrow) {
-			}
+			foreach ($mysql->row as $myrow) {}
 		}
 			
 		if ($mysql->count===1) {
 			$_SESSION['user']= $myrow;
-
 			echo "valid";
 		}else {
 			echo "invalid";

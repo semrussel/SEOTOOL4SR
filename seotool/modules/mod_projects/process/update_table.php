@@ -12,8 +12,14 @@
 	if($_SESSION['user']['UserType'] == "Tigervinci"){
 		$q = 1;
 	}
+	//SET QUERY FOR CLIENT
+	if($_SESSION['user']['UserType'] == "Client"){
+		$mysql->query("SELECT * FROM PROJECT WHERE CLIENTID = ".mysql_escape_string($_SESSION['user']['UserId']).";");
+	}
+	else{
+		$mysql->query("SELECT * FROM PROJECT WHERE TIGERVINCI = ".mysql_escape_string($q).";");
+	}
 
-	$mysql->query("SELECT * FROM PROJECT WHERE TIGERVINCI = ".mysql_escape_string($q).";");
 	$projects = $mysql->row;
 
 	if($projects != null)
@@ -45,6 +51,9 @@
 					<td  class="clickable"><?php echo $row['ProjectTitle']; ?></td>
 					<td class="clickable"><?php echo $companyname[0]['COMPANYNAME']; ?></td>
 					<td class="clickable"><?php echo $row['DateCreated']; ?></td>
+				<?php
+				if($_SESSION['user']['UserType'] != "Client"){
+				?>
 					<td class="actions">
 						<a onclick="toggle_accordion('edit_<?php echo $row['ProjectId']; ?>', '<?php echo $i; ?>')" class="btn edit_btn" title="Edit"><i class="icon-edit"></i></a>
 					</td>
@@ -81,7 +90,7 @@
 						</div>
 					</td>
 				</tr>
-<?php			
+<?php		}
 			$i++;
 		}
 	}

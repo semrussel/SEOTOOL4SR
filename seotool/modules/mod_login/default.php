@@ -39,7 +39,7 @@
 							</div>
 							<div class="row-fluid" style="margin-left: 10px;">
 								<div class="span12">
-									No account? <span class="sign-up"><a href="modules/mod_signup/default.php">Sign up now!</a></span>
+									No account? <span class="sign-up"><a href="?mod=mod_signup">Sign up now!</a></span>
 								</div>
 							</div>
 							<div class="blue-divider"></div>

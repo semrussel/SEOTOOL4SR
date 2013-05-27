@@ -1,5 +1,5 @@
 //DECLARE DEFAULT SORT
-var accdg = 'MONTH, YEAR';
+var accdg = 'MONTHYEAR';
 var asc = 'ASC';
 
 $(document).ready(function(){

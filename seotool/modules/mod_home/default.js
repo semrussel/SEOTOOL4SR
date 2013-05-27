@@ -4,20 +4,20 @@
 	};
 
 	function suggest(value){
-			  $.ajax({
-            	    type: "POST",
-               		url: "modules/mod_home/process/process_suggest.php",
-               		data: {queryString:value}
-           		 }).done(function( result ) {
-           		 	if (result.length==28){
-           		 		$("#suggestions2").hide();
-           		 	}else {
-						$("#suggestions2").hide();
-            			$("#suggestions2").fadeIn(result);
-                		$("#suggestions2").html(result);
-                	}
-            	
-            	});
+	  $.ajax({
+  	    type: "POST",
+     		url: "modules/mod_home/process/process_suggest.php",
+     		data: {queryString:value}
+ 		 }).done(function( result ) {
+ 		 	if (result.length==28){
+ 		 		$("#suggestions2").hide();
+ 		 	}else {
+	$("#suggestions2").hide();
+  			$("#suggestions2").fadeIn(result);
+      		$("#suggestions2").html(result);
+      	}
+  	
+  	});
 	}
 
 	$(document).ready(function(){		

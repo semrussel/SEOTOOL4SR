@@ -21,6 +21,7 @@ body{
 	margin: 0px 0px 0px 0px;
 	padding: 50px 20px;
 	box-shadow: 5px 5px 5px #ccc;
+  height: 100%;
 }
 
 #main_div a, #main_div a:hover{
@@ -249,4 +250,27 @@ table{
 
 .monthly_calendar td, .monthly_calendar th{
   padding: 5px;
+}
+
+.body_content{
+  height: 100%;
+}
+
+.button_edit{
+  margin-top: 10px;
+}
+
+#mod_view_this .project_detail{
+  border-bottom: 1px solid #EEE;
+  margin: 5px;
+}
+
+#mod_view_this .date_details{
+  float: right;
+}
+.details{
+  display: block;
+  color: #CCC;
+  font-size: 12px;
+  margin: 2px 0px;
 }

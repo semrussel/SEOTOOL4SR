@@ -45,21 +45,25 @@
 						<span class="details">Project Title</span>
 					</div>
 					<div class="project_detail">
-						<span><?php echo ($proj[0]['Description']); ?></h6>
+						<span><?php echo ($proj[0]['Description']); ?></span>
 						<span class="details">Project Description</span>
 					</div>	
 					<div class="project_detail">
-						<span><?php echo ($client[0]['FirstName']).' '.($client[0]['LastName']).' of '.($client[0]['CompanyName']); ?></h6>
+						<span><?php echo ($client[0]['FirstName']).' '.($client[0]['LastName']).' of '.($client[0]['CompanyName']); ?></span>
 						<span class="details">Client</span>
 					</div>
 					<div class="project_detail">
-						<span><?php echo ($author[0]['FirstName']).' '.($author[0]['LastName']).' of '.($author[0]['CompanyName']); ?></h6>
+						<span><?php echo ($author[0]['FirstName']).' '.($author[0]['LastName']).' of '.($author[0]['CompanyName']); ?></span>
 						<span class="details date_details"><?php echo ($proj[0]['DateCreated']); ?></span>
 						<span class="details">Created by</span>
 					</div>
+					<?php
+					if($_SESSION['user']['UserType'] != "Client"){
+					?>
 					<div class="row-fluid">
 						<button class="btn btn-danger pull-right" id="delete_this_project">Delete this project</button>
 					</div>
+					<?php } ?>
 					<div id="temp"></div>
 				</div>
 			</div>

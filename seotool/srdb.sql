@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 26, 2013 at 05:50 PM
+-- Generation Time: May 27, 2013 at 02:39 AM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.9
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `file` (
   `AuthorId` int(11) NOT NULL,
   PRIMARY KEY (`FileId`),
   KEY `AuthorId` (`AuthorId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=160 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=165 ;
 
 --
 -- Dumping data for table `file`
@@ -115,7 +115,11 @@ INSERT INTO `file` (`FileId`, `FileName`, `FileSize`, `DateUploaded`, `AuthorId`
 (155, 'kjdfkdhsfikhsdliu', 226304, '2013-05-26 08:21:57', 1),
 (157, 'tijriothlzduinliubli', 598606, '2013-05-26 08:25:08', 1),
 (158, 'normal', 598606, '2013-05-26 08:28:05', 1),
-(159, '<marquee>dfjslkjM</marquee>', 69300, '2013-05-26 08:30:35', 1);
+(159, '<marquee>dfjslkjM</marquee>', 69300, '2013-05-26 08:30:35', 1),
+(160, 'May 2013 ', 376961, '2013-05-26 12:26:01', 1),
+(161, 'Isa pang may 2013', 376961, '2013-05-26 12:27:02', 1),
+(162, 'hehe', 754723, '2013-05-26 12:29:40', 1),
+(164, 'may 2013 mdsjff', 246168, '2013-05-26 13:58:52', 1);
 
 -- --------------------------------------------------------
 
@@ -134,18 +138,13 @@ CREATE TABLE IF NOT EXISTS `project` (
   PRIMARY KEY (`ProjectId`),
   KEY `AuthorId` (`AuthorId`),
   KEY `ClientId` (`ClientId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=90 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
 
 --
 -- Dumping data for table `project`
 --
 
 INSERT INTO `project` (`ProjectId`, `AuthorId`, `ClientId`, `DateCreated`, `Description`, `TigerVinci`, `ProjectTitle`) VALUES
-(22, 1, 2, '2013-05-23 07:06:47', 'Upload, Edit, Create, Delete Reports\nEdit, Create, Delete Projects\nEtc..', 0, 'OPLAN SEO Tool'),
-(34, 1, 2, '2013-05-26 15:44:51', 'dfs', 0, '\\''"''''''"\\'),
-(36, 1, 2, '2013-05-20 21:39:18', 'SEO TOOL Description', 0, 'SEO TOOL'),
-(45, 1, 2, '2013-05-25 09:13:33', 'Lorem ipsum chorva', 0, 'EVERYBODY'),
-(47, 1, 1, '2013-05-21 15:39:25', 'PROJECT', 0, 'Oplan NARMIS'),
 (53, 1, 4, '2013-05-20 22:08:40', 'Description', 0, 'NARMIS'),
 (58, 1, 4, '2013-05-21 00:12:28', 'Description of another project', 0, 'Title of another project'),
 (70, 8, 6, '2013-05-26 05:30:19', 'Desc of tigervinci project', 0, 'Title of  Tigervinci project'),
@@ -180,50 +179,27 @@ CREATE TABLE IF NOT EXISTS `report` (
   KEY `WebsiteId` (`WebsiteId`),
   KEY `ClientId` (`ClientId`),
   KEY `SeoId` (`SeoId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `report`
 --
 
 INSERT INTO `report` (`ReportId`, `WebsiteId`, `ClientId`, `SeoId`, `DateCreated`, `File`, `TigerVinci`, `ReportTitle`, `MonthYear`) VALUES
-(2, 34, 1, 1, '2013-05-20', '109', 0, 'fiveeee', '0000-00-00'),
-(3, 22, 6, 1, '2013-05-20', '110', 0, 'Chapter 1 Slides CMSC 128', '0000-00-00'),
-(4, 22, 6, 1, '2013-05-20', '111', 0, 'dfsdfsd', '0000-00-00'),
 (5, 58, 4, 1, '2013-05-23', '112', 0, 'kjljlk', '0000-00-00'),
-(6, 34, 2, 1, '2013-05-23', '113', 0, 'sdsdasd', '0000-00-00'),
-(7, 47, 1, 1, '2013-05-23', '118', 0, 'drfsddsfsd', '0000-00-00'),
-(8, 22, 2, 1, '2013-05-23', '119', 0, 'dfsfsdfsdfds', '0000-00-00'),
-(9, 47, 1, 1, '2013-05-23', '120', 0, 'SPEECH PLAN FOR NARMIS', '0000-00-00'),
-(10, 22, 1, 1, '2013-05-23', '120', 0, 'TITLE', '0000-00-00'),
-(11, 22, 1, 1, '2013-05-23', '120', 0, 'TITLE', '2013-05-05'),
-(12, 47, 1, 1, '2013-05-23', '121', 0, 'DEMO SPEECH OR OPLAN NARMIS', '0000-00-00'),
-(13, 22, 2, 1, '2013-05-23', '122', 0, 'METHODS OF PERSUATION', '2013-04-01'),
-(14, 47, 1, 1, '2013-05-25', '123', 0, 'REPORT FOR MAY 2011', '2012-05-01'),
-(15, 22, 2, 1, '2013-05-25', '124', 0, 'sdasdsads', '2013-06-01'),
-(16, 47, 1, 1, '2013-05-25', '125', 0, 'Para sa oplan Narmis Ulit', '2013-07-01'),
-(17, 47, 1, 1, '2013-05-25', '126', 0, 'Para sa oplan Narmis Ulit?', '2013-08-01'),
-(18, 22, 2, 1, '2013-05-25', '127', 0, 'Sa oplan SEO TOOL naman', '2013-03-01'),
-(19, 22, 2, 1, '2013-05-25', '128', 0, 'This is a report title for December (SEO TOOL)', '2013-12-01'),
-(20, 47, 1, 1, '2013-05-25', '129', 0, 'REPORT FOR DEC 2012 FOR NARMIS', '2012-12-01'),
-(21, 47, 1, 1, '2013-05-25', '130', 0, 'FOR JAN 2012 NARMIS', '2012-03-01'),
-(22, 47, 1, 1, '2013-05-25', '131', 0, 'FOR JUL 2012', '2012-07-01'),
-(23, 47, 1, 1, '2013-05-25', '132', 0, 'FOR JUL 2012', '2012-07-01'),
 (24, 58, 4, 1, '2013-05-25', '133', 0, 'JAN 2013 Another', '2013-01-01'),
-(25, 47, 1, 1, '2013-05-25', '134', 0, 'REPORT FOR AUG 2014 OPLAN NARMIS', '2014-08-01'),
 (26, 58, 4, 1, '2013-05-25', '135', 0, 'AUG 2015 ANOTHER', '2015-08-01'),
 (27, 53, 4, 1, '2013-05-25', '136', 0, 'JUNE REPORT 2013 FOR NARMIS ONLY', '2013-06-01'),
-(34, 45, 2, 1, '2013-05-26', '143', 0, 'May 2013 Everybody project', '0000-00-00'),
-(35, 22, 2, 1, '2013-05-26', '144', 0, 'September report for OPLAN SEO Tool', '0000-00-00'),
-(36, 36, 2, 1, '2013-05-26', '145', 0, 'SEO TOOL APR 2013', '0000-00-00'),
-(37, 45, 2, 1, '2013-05-26', '146', 0, 'Everybody Sept 2013', '2013-09-01'),
-(38, 36, 2, 1, '2013-05-26', '147', 0, 'sdasdsads', '2013-10-01'),
 (40, 80, 2, 8, '2013-05-26', '149', 1, 'report for test test test jan 2013', '2013-01-01'),
 (41, 80, 2, 1, '2013-05-26', '150', 0, 'for tigervinci tes test feb 2013', '2013-02-01'),
 (42, 58, 4, 1, '2013-05-26', '151', 0, '<h1>testing again</h1>', '2011-08-01'),
 (43, 87, 2, 1, '2013-05-26', '157', 0, 'tijriothlzduinliubli', '2010-05-01'),
 (44, 87, 2, 1, '2013-05-26', '158', 0, 'normal', '2100-03-01'),
-(45, 87, 2, 1, '2013-05-26', '159', 0, '<marquee>dfjslkjM</marquee>', '2012-11-01');
+(45, 87, 2, 1, '2013-05-26', '159', 0, '<marquee>dfjslkjM</marquee>', '2012-11-01'),
+(46, 70, 6, 1, '2013-05-26', '160', 0, 'May 2013 ', '2013-05-01'),
+(47, 58, 4, 1, '2013-05-26', '161', 0, 'Isa pang may 2013', '2013-11-01'),
+(48, 88, 6, 1, '2013-05-26', '162', 0, 'hehe', '2013-05-01'),
+(50, 58, 4, 1, '2013-05-26', '164', 0, 'may 2013 mdsjff', '2013-04-01');
 
 -- --------------------------------------------------------
 
@@ -243,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`UserId`),
   UNIQUE KEY `Username` (`Username`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user`
@@ -256,7 +232,8 @@ INSERT INTO `user` (`UserId`, `Username`, `Password`, `UserType`, `Email`, `Firs
 (5, '<h1>sdksd</h1>', 'dasdasd', 'Client', 'skjhlK@JMddd.cojd', '<h1>aaaaaaa</h1>', 'bbbbbbb', 'bbbb'),
 (6, 'usernamw', '5f4dcc3b5aa765d61d8327deb882cf99', 'Client', 'jdhfsdkjgkj@jgksd.fsd', 'jakjgkjg', 'kjhgkjhgkjhg', 'jdhkjsdhfdf'),
 (7, 'sdfsdfsdf', 'dfdsgdfgsf', 'Client', 'fsdfnlkj@kjdrg.spodjfspd', 'dfsdf', 'fsdfds', 'CompanyOne'),
-(8, 'tigervinci', 'a55a8c7f9e736cec0796103a92a8e27b', 'Tigervinci', 'tigervonci@tigervinci.com', 'Tigervinci', 'Account', 'Tigervinci');
+(8, 'tigervinci', 'a55a8c7f9e736cec0796103a92a8e27b', 'Tigervinci', 'tigervonci@tigervinci.com', 'Tigervinci', 'Account', 'Tigervinci'),
+(9, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'admin@admin.com', 'admin', 'admin', 'adminadmin');
 
 --
 -- Constraints for dumped tables

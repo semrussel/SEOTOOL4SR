@@ -26,14 +26,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="widget">
-				<div class="widget-header">
-					<i class="icon-exclamation-sign"></i>
-					<h3>Pending Project Reports</h3>
-				</div>
-				<div class="widget-content">
-				</div>
-			</div>
 		</div>
 		<div class="span7">	
 			<div class="alert alert-success" id="alert_success">
@@ -52,8 +44,6 @@
 				</div>
 				<div class="widget-content">
 					<div id="table_refresh" class="row-fluid"></div>
-					<!--table class="table table-striped table-hover project" id="table_refresh">	
-					</table-->
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,49 @@
+#mod_signup{
+	background-color: #FFF;
+	margin: auto;
+	display: block;
+	margin-top: 100px;
+	padding: 10px;
+	line-height: 25px;
+
+	height: auto;
+	padding: 15px 10px;
+
+	-webkit-box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.20);
+	box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.20);
+}
+div[id$="Prompt"]{
+	font-size: 10px;
+	line-height: 10px;
+}
+.row-fluid{
+	vertical-align: middle;
+}
+
+#mod_signup h4{
+	margin-bottom: 10px;
+}
+
+#mod_signup .blue_div {
+	-webkit-box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.80);
+	box-shadow: 2px 2px 16px rgba(50, 50, 50, 0.80);
+	background-color: #4982bb;
+	margin-right: -30px;
+	margin-top: 10%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align: center;
+	max-width: 120%;
+}
+
+#mod_signup label {
+	display: inline;
+}
+
+#mod_signup #seo {
+	color: #fff;
+}
+
+#mod_signup #tool {
+	position: inline;
+}

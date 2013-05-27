@@ -213,14 +213,8 @@
 
 #suggestions2{
 	float:right;
-	margin-right: 11px; 
 	z-index: 3;
 	width: 320px;
-	position: relative;
-	
-}
-.navbar-search{
-	margin-left: 21%;
 }
 
 #searchform { margin:50px 200px; font-size:18px; }

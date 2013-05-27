@@ -1,0 +1,19 @@
+img#user{
+	margin: auto;
+}
+
+#profile_img{
+	text-align: center;
+}
+span#full_name{
+	font-size: 15px;
+	font-weight: bold;
+}
+div#full_name_div, .user_detail{
+	border-bottom: 1px solid #CCC; 
+	margin-bottom: 15px;
+}
+
+.detail{
+	color: #777;
+}

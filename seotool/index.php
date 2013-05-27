@@ -56,6 +56,6 @@
 					Copyright © 2013 - Solutions Resource LLC.
 				</div>
 			</div>
-			</div>
+		</div>
 	</body>
 </html>
